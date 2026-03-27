@@ -35,11 +35,18 @@
 - Consultant-facing initialization, smoke-test, and release-build scripts
 - Installation, operations, and release-checklist documentation
 - Top-level smoke-test coverage and predictable output folder guidance
+- PySide6 desktop launcher foundation with enterprise-style shell structure
+- Launcher-specific documentation and architecture notes for thin-client orchestration
+- Typed launcher configuration models, PowerShell profile catalog, and sample launcher config JSON
+- Panel-based launcher UI with dynamic auth and AI controls plus a doc-backed app-auth help window
 
 ### Changed
 - README now reflects the actual repository skeleton and bootstrap usage
-- Next-step guidance now advances to future roadmap items beyond the current phase pack
-- Test plan expanded with end-to-end smoke-test and release-package validation scenarios
+- README now reflects the launcher component and repository structure updates
+- README now reflects the launcher configuration contract and profile-mapping layer
+- README now reflects the launcher UI behavior and app-auth guidance
+- Next-step guidance now advances to PowerShell process bridging and execution wiring
+- Test plan expanded with launcher UI smoke and control-behavior validation scenarios
 
 ### Fixed
 - N/A

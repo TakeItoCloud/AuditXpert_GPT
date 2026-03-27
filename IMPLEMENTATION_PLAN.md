@@ -71,6 +71,18 @@ Deliver the platform in phases. Build the shared framework first, then connector
 - Release packaging
 - Documentation hardening
 
+### Phase 11 - Desktop launcher foundation
+- Python launcher workspace
+- PySide6 application shell
+- UI sections for orchestration workflow
+- Thin-client architecture notes and documentation
+
+### Phase 12 - Launcher configuration contract
+- Typed launcher dataclasses
+- PowerShell profile catalog for real repository entry points
+- Config-loading and validation helpers
+- Sample launcher configuration JSON
+
 ## Detailed steps
 | Step ID | Title | Goal | Inputs | Outputs | Dependencies | Status |
 |---|---|---|---|---|---|---|
@@ -84,7 +96,9 @@ Deliver the platform in phases. Build the shared framework first, then connector
 | 8 | Hybrid packs | Assess on-prem and hybrid dependencies | Findings schema | Hybrid rules | Step 5 | Planned |
 | 9 | Governance layer | Map findings to control domains | Findings outputs | Governance engine | Step 6-8 | Planned |
 | 10 | AI reporting | Generate enterprise narrative | Findings + governance | AI explainer | Step 9 | Planned |
-| 11 | Hardening | Make solution production-ready | Full repo | Tests and packaging | Step 1-10 | Planned |
+| 11 | Hardening | Make solution production-ready | Full repo | Tests and packaging | Step 1-10 | Completed |
+| 12 | Launcher foundation | Add a thin desktop shell over the PowerShell platform | Full repo plus operational docs | PySide6 launcher scaffold and integration notes | Step 11 | Completed |
+| 13 | Launcher config contract | Normalize launcher selections and map them to real PowerShell entry points | Launcher foundation plus current scripts and modules | Typed config models, profile mapping catalog, and config docs | Step 12 | Completed |
 
 ## Validation strategy
 - Pester tests for PowerShell modules
@@ -94,6 +108,8 @@ Deliver the platform in phases. Build the shared framework first, then connector
 - Fixture-based tests for finding normalization
 - Sample export validation
 - Manual validation for at least one lab tenant and one hybrid lab
+- Launcher smoke validation for imports and `python launcher\\main.py` startup when dependencies are present
+- Launcher config validation for dataclass instantiation, sample JSON loading, and profile mapping accuracy
 
 ## Rollback or recovery considerations
 - Keep assessment mode read-only in early releases

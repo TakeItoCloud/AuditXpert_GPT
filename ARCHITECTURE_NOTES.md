@@ -12,9 +12,11 @@ The recommended architecture is a single repository with modular PowerShell comp
 - `AuditXpert.Reporting`: technical and executive report rendering
 - `AuditXpert.AI`: AI prompt templates, response handling, narrative generation
 - `AuditXpert.Cli`: orchestrator entry points and command UX
+- `launcher`: PySide6 desktop shell that coordinates future operator workflows without replacing the PowerShell engine
 
 ## Current repository structure
 - Root working folders: `config`, `docs`, `output`, `samples`, `src`, `tests`, and `tools`
+- Desktop launcher workspace under `launcher` with `app/ui`, `app/services`, `app/models`, and `app/resources`
 - Root bootstrap entry point: `Invoke-AuditXpert.ps1`
 - Module layout per engine: module manifest, module file, `Public`, and `Private`
 - Project-memory markdown files at the repository root to preserve implementation continuity across sessions
@@ -26,6 +28,7 @@ The recommended architecture is a single repository with modular PowerShell comp
 - Governance documentation, mapping configuration, and sample governance inputs now exist under `docs`, `config/framework-mappings`, and `samples/governance`
 - Reporting and AI documentation plus sample report outputs now exist under `docs`, `samples/reports`, `tests/Reporting`, and `tests/AI`
 - Operational tooling and packaging assets now exist under `tools` with predictable consultant-facing output paths under `output`
+- Launcher documentation now exists under `docs/launcher` and the launcher package has its own local `README.md`
 
 ## Data or control flow
 1. Load configuration
@@ -38,6 +41,7 @@ The recommended architecture is a single repository with modular PowerShell comp
 8. Map findings to control domains
 9. Generate technical and executive reports
 10. Optionally generate AI-assisted narratives from normalized findings
+11. Optionally coordinate validated execution flows through the desktop launcher without relocating business logic from PowerShell
 
 ## External dependencies
 - Microsoft Graph PowerShell SDK
@@ -45,6 +49,7 @@ The recommended architecture is a single repository with modular PowerShell comp
 - Az PowerShell modules
 - Optional Windows RSAT / AD module for hybrid checks
 - Optional ChatGPT API access for AI report generation
+- Python 3.11 or later plus PySide6 for the desktop launcher shell
 
 ## Security and compliance notes
 - Keep credentials out of code
@@ -68,9 +73,15 @@ The recommended architecture is a single repository with modular PowerShell comp
 - Keep governance mappings configurable and versioned so the platform supports assessment interpretation rather than fake certification claims
 - Keep AI prompt rendering traceable to finding IDs and ensure non-AI reporting remains a supported path
 - Keep output separation explicit across evidence, findings, governance, reports, logs, and release artifacts
+- Keep the desktop launcher as a thin orchestration layer that passes versioned configuration into PowerShell entry points instead of re-implementing collection or assessment logic in Python
+- Normalize launcher state into typed Python models and map it only to repository-backed PowerShell profiles so unsupported UI intent can be stored without inventing fake script parameters
+- Keep the launcher UI panelized around one shared config object with signal-based updates so later process-bridging logic can subscribe to state changes without duplicating widget logic
 
 ## Future architecture considerations
 - Web UI or API wrapper
+- Launcher-to-engine binding contracts and state synchronization
+- Richer launcher controls and help surfaces over the normalized config contract
+- Launcher-to-PowerShell process bridging and execution-state synchronization
 - Multi-tenant scheduling
 - Evidence repository and client workspace separation
 - Controlled remediation workflows

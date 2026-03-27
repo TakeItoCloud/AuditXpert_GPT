@@ -1,0 +1,37 @@
+{
+  "contract_version": "1.0",
+  "selected_assessment_modules": [
+    "Microsoft365",
+    "Azure"
+  ],
+  "selected_execution_profile": "assessment-orchestrator",
+  "output_path": "output/findings",
+  "evidence_path": "output/evidence",
+  "export_formats": [
+    "Json",
+    "Markdown"
+  ],
+  "install_missing_modules": false,
+  "open_results_after_run": true,
+  "auth": {
+    "authentication_mode": "delegated",
+    "interactive_login": true,
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "client_id": "11111111-1111-1111-1111-111111111111",
+    "client_secret_path": null,
+    "use_secure_secret_entry": false,
+    "certificate": {
+      "thumbprint": null,
+      "subject": null,
+      "store": "CurrentUser\\My",
+      "path": null
+    }
+  },
+  "ai": {
+    "enabled": false,
+    "provider": "openai",
+    "model": "gpt-5.4",
+    "api_key_env_var": "OPENAI_API_KEY",
+    "external_config_path": null
+  }
+}

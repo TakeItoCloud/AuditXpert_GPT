@@ -18,6 +18,9 @@
 - Assessment packs
 - Reporting
 - AI prompt rendering
+- Desktop launcher shell
+- Launcher configuration contract
+- Launcher UI behavior
 
 ## Test types
 - Smoke
@@ -54,6 +57,12 @@
 | T-007 | End-to-end dry-run smoke test | Phase 10 tooling present | Run `tools/Run-SmokeTests.ps1` | Modules import, governance/report flow executes, and smoke validation completes successfully | Completed |
 | T-007A | Release package build | Phase 10 tooling present | Run `tools/Build-Release.ps1` | Release package and archive are created in predictable output paths | Completed |
 | T-007B | Initialization bootstrap | Phase 10 tooling present | Run `tools/Initialize-AuditXpert.ps1` | Consultant-friendly output folder structure is created predictably | Completed |
+| T-008 | Launcher import validation | Phase 11 launcher scaffold present | Compile launcher Python sources and resolve imports | Launcher entry point and UI modules validate without syntax errors | Completed |
+| T-008A | Launcher startup smoke test | Phase 11 launcher scaffold and PySide6 dependency available | Run `python .\\launcher\\main.py` | Desktop shell starts without syntax errors and renders the main window | Completed when dependency is installed |
+| T-008B | Launcher config model validation | Phase 12 launcher contract present | Instantiate launcher config models and validate a sample JSON payload | Typed launcher config loads successfully and surfaces only supported profile-mapping behavior | Completed |
+| T-008C | Profile mapping accuracy | Phase 12 launcher contract present | Compare launcher profile catalog against repository scripts and orchestrator command | Documented launcher profiles match the current PowerShell entry points and parameters | Completed |
+| T-008D | Launcher dynamic auth behavior | Phase 13 launcher UI present | Switch between delegated, app, client-secret, and certificate controls | Dependent auth controls show and hide correctly and launcher state updates cleanly | Completed |
+| T-008E | Launcher AI and help behavior | Phase 13 launcher UI present | Toggle AI fields and open the app-auth help window | AI-dependent fields show correctly and help guidance loads from maintained docs | Completed |
 
 ## Validation evidence
 - Pester output
@@ -70,3 +79,6 @@
 - Regulatory Pester output and sample-governance smoke-test output
 - Reporting Pester output, AI Pester output, and non-AI report generation smoke-test output
 - End-to-end smoke-test output and release-package build output
+- Python compilation output and launcher startup smoke-test output when PySide6 is installed
+- Launcher config sample load output and profile-catalog validation output
+- Offscreen launcher UI smoke-test output for dynamic visibility, help-window rendering, and state updates

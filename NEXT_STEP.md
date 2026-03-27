@@ -1,31 +1,32 @@
 # Next Step
 
 ## Current recommended step
-Future roadmap and production hardening beyond Phase 10.
+PowerShell process bridging and execution wiring after the Phase 13 launcher UI phase.
 
 ## Objective
-Continue production hardening with deeper core-runtime implementation, broader connector validation against real environments, release/version strategy, and richer packaging or deployment options.
+Bind the launcher state model to safe PowerShell process invocation so the UI can launch supported repository entry points, collect status, and persist run artifacts without duplicating platform logic.
 
 ## Why this is next
-The ten planned phases are now scaffolded. Future work should focus on strengthening operational depth rather than expanding the foundational architecture further.
+The launcher now has a shell, a normalized configuration contract, and interactive UI controls. The next step is to wire those controls into explicit PowerShell process calls and execution-state handling.
 
 ## Files to create or modify
-- Release/versioning assets
-- Expanded environment-specific tests
-- Deeper core and prerequisite implementations
-- Packaging/deployment artifacts
-- Client-delivery templates
+- Launcher process or bridge services
+- Launcher execution-status plumbing
+- Safe PowerShell invocation helpers
+- Launcher run-history or artifact-handling helpers
+- Launcher-focused smoke tests
 - Root project-memory markdown files as needed to reflect implementation progress
 
 ## Dependencies or prerequisites
-- Phase 10 hardening and packaging scaffolding complete
+- Phase 13 launcher UI complete
 - PowerShell 7 preferred
+- Python 3.11 or later for launcher validation
 - Write access to target folder
 
 ## Validation required
-- Confirm higher-confidence validation against real tenants and lab environments
-- Confirm release/version workflow is repeatable
-- Confirm packaging and delivery steps remain consultant-friendly
+- Confirm launcher actions invoke supported PowerShell entry points safely
+- Confirm process output and status can be surfaced back into the UI cleanly
+- Confirm the launcher remains a thin client and does not duplicate platform logic
 
 ## After completion update
 - DEVELOPMENT_HISTORY.md
