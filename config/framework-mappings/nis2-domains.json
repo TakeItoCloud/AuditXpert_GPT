@@ -1,0 +1,25 @@
+{
+  "Framework": "nis2-domains",
+  "Version": "1.0.0",
+  "Description": "Illustrative NIS2-oriented control domains for governance mapping support only.",
+  "Mappings": [
+    {
+      "Domain": "CyberHygiene",
+      "Control": "AssetAndIdentityHygiene",
+      "Categories": ["Identity", "DirectoryHygiene", "IdentityLifecycle", "ComputeSecurity"],
+      "Services": ["Microsoft 365", "Hybrid / On-Prem", "Azure"]
+    },
+    {
+      "Domain": "OperationalSecurity",
+      "Control": "LoggingAndMonitoring",
+      "Categories": ["Monitoring", "ThreatProtection", "NetworkSecurity"],
+      "Services": ["Azure", "Microsoft 365"]
+    },
+    {
+      "Domain": "Resilience",
+      "Control": "BackupAndRecovery",
+      "Categories": ["Resilience", "MessagingHybrid", "HybridIdentity"],
+      "Services": ["Azure", "Hybrid / On-Prem"]
+    }
+  ]
+}

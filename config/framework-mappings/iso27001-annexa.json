@@ -1,0 +1,25 @@
+{
+  "Framework": "iso27001-annexa",
+  "Version": "1.0.0",
+  "Description": "Illustrative ISO/IEC 27001-style Annex A domain mapping for governance support only.",
+  "Mappings": [
+    {
+      "Domain": "A.5 Organizational Controls",
+      "Control": "A.5.15 Access Control",
+      "Categories": ["Identity", "PrivilegedAccess", "DirectoryHygiene"],
+      "Services": ["Microsoft 365", "Hybrid / On-Prem"]
+    },
+    {
+      "Domain": "A.8 Technological Controls",
+      "Control": "A.8.16 Monitoring Activities",
+      "Categories": ["Monitoring", "ThreatProtection", "SecurityPosture"],
+      "Services": ["Azure", "Microsoft 365"]
+    },
+    {
+      "Domain": "A.8 Technological Controls",
+      "Control": "A.8.13 Information Backup",
+      "Categories": ["Resilience", "ConfigurationBaseline", "DomainControllerSecurity"],
+      "Services": ["Azure", "Hybrid / On-Prem"]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "Connector": "MicrosoftGraph",
+  "AuthMethod": "AppOnly",
+  "TenantId": "00000000-0000-0000-0000-000000000000",
+  "ClientId": "00000000-0000-0000-0000-000000000000",
+  "CertificateThumbprint": "<replace-at-runtime>",
+  "Scopes": [
+    "Directory.Read.All"
+  ],
+  "Notes": "Placeholder sample only. Do not store real secrets or tenant values in repository files."
+}

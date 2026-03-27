@@ -1,0 +1,6 @@
+{
+  "Connector": "HybridLocal",
+  "AuthMethod": "Integrated",
+  "ComputerName": "SERVER01",
+  "Notes": "Local collection sample. No credential material is stored here."
+}

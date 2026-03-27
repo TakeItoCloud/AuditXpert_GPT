@@ -1,0 +1,40 @@
+{
+  "ScopeType": "Domain",
+  "Scope": "contoso.local",
+  "Mode": "LabFriendly",
+  "Datasets": {
+    "ActiveDirectory": {
+      "InsecureOuDelegationCount": 2,
+      "AccountsWithReversibleEncryptionCount": 1,
+      "RsatAvailable": true
+    },
+    "PrivilegedGroups": {
+      "ExcessPrivilegedMembers": 7,
+      "NestedPrivilegedGroups": 1
+    },
+    "StaleAccounts": {
+      "StaleUserCount": 18,
+      "StaleComputerCount": 9
+    },
+    "DomainControllers": {
+      "OutdatedDomainControllerCount": 1,
+      "ControllersWithoutLdapSigningCount": 1
+    },
+    "GpoBaseline": {
+      "BaselineDriftCount": 14,
+      "UnlinkedSecurityGpoCount": 1
+    },
+    "HybridIdentity": {
+      "SyncErrorCount": 3,
+      "StagingServerPresent": false
+    },
+    "Adcs": {
+      "SupportAdded": false,
+      "WeakTemplateCount": 0
+    },
+    "ExchangeHybrid": {
+      "SupportAdded": false,
+      "InsecureVirtualDirectoryCount": 0
+    }
+  }
+}

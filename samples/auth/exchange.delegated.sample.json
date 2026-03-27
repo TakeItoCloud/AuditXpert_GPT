@@ -1,0 +1,6 @@
+{
+  "Connector": "ExchangeOnline",
+  "AuthMethod": "Delegated",
+  "Organization": "contoso.onmicrosoft.com",
+  "Notes": "Delegated sample for operator-driven connection testing only."
+}

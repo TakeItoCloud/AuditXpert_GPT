@@ -1,0 +1,164 @@
+# --------------------------------------------------
+# OS / Editor
+# --------------------------------------------------
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+.vscode/
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+.idea/
+*.code-workspace
+
+# --------------------------------------------------
+# Logs
+# --------------------------------------------------
+*.log
+logs/
+*.tmp
+*.bak
+*.old
+
+# --------------------------------------------------
+# Python
+# --------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+.venv/
+venv/
+env/
+ENV/
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+
+dist/
+build/
+site/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# PyInstaller / packaging
+*.spec
+
+# Jupyter
+.ipynb_checkpoints/
+
+# --------------------------------------------------
+# PowerShell
+# --------------------------------------------------
+# PowerShell build/test output
+TestResults/
+coverage.xml
+PesterResults.xml
+
+# PowerShell transcript and runtime output
+transcripts/
+*.clixml
+
+# Local modules copied into repo accidentally
+Modules/
+PSModules/
+
+# --------------------------------------------------
+# Reports / exports / runtime-generated artifacts
+# --------------------------------------------------
+output/
+outputs/
+reports/
+exports/
+artifacts/
+evidence/
+temp/
+tmp/
+cache/
+
+# Keep folder structure if needed
+!.gitkeep
+
+# --------------------------------------------------
+# Secrets / credentials / auth
+# --------------------------------------------------
+*.pfx
+*.p12
+*.cer
+*.crt
+*.key
+*.pem
+*.pub
+
+secrets/
+certs/
+certificates/
+keys/
+
+.env
+.env.*
+!.env.example
+
+appsettings.local.json
+settings.local.json
+config.local.json
+local.settings.json
+auth.local.json
+credentials.local.json
+
+# PowerShell secrets / tokens
+*secret*
+*token*
+*apikey*
+*api_key*
+*credential*
+*credentials*
+
+# --------------------------------------------------
+# Azure / Microsoft 365 / auth cache
+# --------------------------------------------------
+.azure/
+.azcopy/
+msal_cache*
+token_cache*
+*.token
+
+# --------------------------------------------------
+# Databases / local state
+# --------------------------------------------------
+*.db
+*.sqlite
+*.sqlite3
+
+# --------------------------------------------------
+# Archives / packaged deliverables
+# --------------------------------------------------
+*.zip
+*.7z
+*.rar
+
+# --------------------------------------------------
+# Generated UI/runtime config
+# --------------------------------------------------
+.runtime/
+session/
+state/
+user-data/
+
+# --------------------------------------------------
+# Optional: keep sample config templates tracked
+# --------------------------------------------------
+!config/
+!config/*.example.json
+!config/*.template.json
+!config/*.sample.json

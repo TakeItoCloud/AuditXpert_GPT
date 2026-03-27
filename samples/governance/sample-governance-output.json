@@ -1,0 +1,8 @@
+{
+  "Frameworks": [
+    "nis2-domains",
+    "iso27001-annexa",
+    "internal-security-baseline"
+  ],
+  "Disclaimer": "Governance outputs support assessment and prioritization. They do not constitute automatic compliance certification."
+}

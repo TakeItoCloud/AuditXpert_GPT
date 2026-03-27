@@ -1,0 +1,53 @@
+{
+  "Scope": "Tenant",
+  "Datasets": {
+    "Permissions": {
+      "EntraId": "Full",
+      "ConditionalAccess": "Full",
+      "LegacyAuth": "Partial",
+      "AdminRoles": "Full",
+      "Intune": "Full",
+      "ExchangeOnline": "Partial",
+      "Defender": "Partial",
+      "SecureScore": "Full"
+    },
+    "EntraId": {
+      "MFARegisteredPercent": 58
+    },
+    "ConditionalAccess": {
+      "PolicyCount": 4,
+      "ProtectedAppsPercent": 62
+    },
+    "LegacyAuth": {
+      "EnabledProtocolCount": 2,
+      "UnsupportedSurface": true
+    },
+    "AdminRoles": {
+      "StandingPrivilegedAdmins": 6,
+      "PIMCoveragePercent": 45
+    },
+    "Intune": {
+      "SecurityBaselineAssigned": true,
+      "PolicyConflictCount": 4
+    },
+    "ExchangeOnline": {
+      "AntiPhishEnabled": false,
+      "SafeLinksEnabled": true,
+      "AnonymousInboundConnectorCount": 1
+    },
+    "Defender": {
+      "ExposureLevel": "Medium",
+      "RecommendationCompletionPercent": 48,
+      "UnsupportedSurface": true
+    },
+    "SecureScore": {
+      "CurrentScore": 42.5,
+      "MaxScore": 100,
+      "TopImprovementActions": [
+        "Enable phishing-resistant MFA for administrators",
+        "Block legacy authentication",
+        "Increase device compliance enforcement"
+      ]
+    }
+  }
+}

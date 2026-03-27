@@ -1,0 +1,9 @@
+{
+  "Connector": "Azure",
+  "AuthMethod": "ServicePrincipal",
+  "TenantId": "00000000-0000-0000-0000-000000000000",
+  "SubscriptionId": "00000000-0000-0000-0000-000000000000",
+  "ClientId": "00000000-0000-0000-0000-000000000000",
+  "CertificateThumbprint": "<replace-at-runtime>",
+  "Notes": "Sample only. Real credentials must be supplied securely outside source control."
+}

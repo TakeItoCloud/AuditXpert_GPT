@@ -1,0 +1,25 @@
+{
+  "Framework": "internal-security-baseline",
+  "Version": "1.0.0",
+  "Description": "Illustrative internal security baseline mapping for prioritization and scorecarding.",
+  "Mappings": [
+    {
+      "Domain": "IdentityAndAccess",
+      "Control": "PrivilegedAccessAndMFA",
+      "Categories": ["Identity", "PrivilegedAccess", "HybridIdentity"],
+      "Services": ["Microsoft 365", "Hybrid / On-Prem"]
+    },
+    {
+      "Domain": "PlatformHardening",
+      "Control": "SecureConfigurationBaseline",
+      "Categories": ["ConfigurationBaseline", "ComputeSecurity", "Governance"],
+      "Services": ["Azure", "Hybrid / On-Prem", "Microsoft 365"]
+    },
+    {
+      "Domain": "ResilienceAndRecovery",
+      "Control": "RecoveryPreparedness",
+      "Categories": ["Resilience", "MessagingSecurity", "MessagingHybrid"],
+      "Services": ["Azure", "Microsoft 365", "Hybrid / On-Prem"]
+    }
+  ]
+}

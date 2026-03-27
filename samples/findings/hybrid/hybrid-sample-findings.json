@@ -1,0 +1,38 @@
+[
+  {
+    "FindingId": "AX-HY-AD-001",
+    "Category": "DirectoryHygiene",
+    "Service": "Hybrid / On-Prem",
+    "Scope": "Domain:contoso.local",
+    "Severity": "High",
+    "Likelihood": "Medium",
+    "Impact": "High",
+    "RiskScore": 12,
+    "Title": "Active Directory hygiene indicators require review",
+    "Description": "Sample Phase 07 finding output for hybrid coverage.",
+    "Evidence": [
+      {
+        "Source": "ActiveDirectoryFixture",
+        "InsecureOuDelegationCount": 2,
+        "AccountsWithReversibleEncryptionCount": 1,
+        "RsatAvailable": true,
+        "CollectionMode": "LabFriendly"
+      }
+    ],
+    "Recommendation": "Review delegation boundaries, remove reversible password storage, and verify the read-only collection baseline for the scoped directory.",
+    "RemediationType": "Configuration",
+    "FrameworkMappings": [
+      {
+        "Framework": "NIS2",
+        "Control": "OperationalSecurity"
+      }
+    ],
+    "Source": {
+      "Connector": "HybridLocal",
+      "RuleId": "AX-HY-AD-001",
+      "Pack": "Hybrid",
+      "Area": "ActiveDirectory"
+    },
+    "Timestamp": "2026-03-27T00:00:00.0000000Z"
+  }
+]

@@ -1,0 +1,43 @@
+{
+  "ScopeType": "Subscription",
+  "Scope": "sub-prod-001",
+  "ResourceType": "Microsoft.Compute/virtualMachines",
+  "Datasets": {
+    "Inventory": {
+      "SubscriptionCount": 4,
+      "ManagementGroupCount": 2,
+      "UnassignedSubscriptionCount": 1
+    },
+    "Policy": {
+      "CompliancePercent": 74,
+      "NonCompliantResourceCount": 19
+    },
+    "DefenderForCloud": {
+      "HighSeverityRecommendationCount": 3,
+      "NativeRecommendationId": "dfc-rec-001",
+      "NativePortalLink": "https://portal.azure.com/#view/Microsoft_Azure_Security/SecurityRecommendationBlade/id/dfc-rec-001"
+    },
+    "Advisor": {
+      "CriticalRecommendationCount": 2,
+      "NativeRecommendationId": "advisor-rec-001",
+      "NativePortalLink": "https://portal.azure.com/#view/Microsoft_Azure_Expert/RecommendationDetails/id/advisor-rec-001"
+    },
+    "Compute": {
+      "UnpatchedVmCount": 7,
+      "VmWithoutManagedIdentityCount": 3
+    },
+    "Networking": {
+      "InternetExposedRuleCount": 2,
+      "UnattachedNsgCount": 1
+    },
+    "Monitoring": {
+      "DiagnosticCoveragePercent": 68,
+      "LogAnalyticsLinked": true
+    },
+    "Resilience": {
+      "KeyVaultWithoutSoftDeleteCount": 1,
+      "StorageWithoutVersioningCount": 2,
+      "VmWithoutBackupCount": 4
+    }
+  }
+}

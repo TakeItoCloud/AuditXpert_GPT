@@ -1,0 +1,37 @@
+[
+  {
+    "FindingId": "AX-M365-ENTRA-001",
+    "Category": "Identity",
+    "Service": "Microsoft 365",
+    "Scope": "Tenant",
+    "Severity": "High",
+    "Likelihood": "Medium",
+    "Impact": "High",
+    "RiskScore": 12,
+    "Title": "Entra ID MFA registration posture requires review",
+    "Description": "Sample Phase 05 finding output for Microsoft 365 coverage.",
+    "Evidence": [
+      {
+        "Source": "EntraIdFixture",
+        "Metric": "MFARegisteredPercent",
+        "Value": 58,
+        "PermissionCoverage": "Full"
+      }
+    ],
+    "Recommendation": "Review registration campaigns, excluded user populations, and authentication method rollout coverage.",
+    "RemediationType": "Configuration",
+    "FrameworkMappings": [
+      {
+        "Framework": "NIS2",
+        "Control": "CyberHygiene"
+      }
+    ],
+    "Source": {
+      "Connector": "MicrosoftGraph",
+      "RuleId": "AX-M365-ENTRA-001",
+      "Pack": "Microsoft365",
+      "Area": "EntraId"
+    },
+    "Timestamp": "2026-03-27T00:00:00.0000000Z"
+  }
+]

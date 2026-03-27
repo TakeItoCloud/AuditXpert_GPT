@@ -1,0 +1,59 @@
+[
+  {
+    "FindingId": "AX-M365-ENTRA-001",
+    "Category": "Identity",
+    "Service": "Microsoft 365",
+    "Scope": "Tenant",
+    "Severity": "High",
+    "Likelihood": "Medium",
+    "Impact": "High",
+    "RiskScore": 12,
+    "Title": "Entra ID MFA registration posture requires review",
+    "Description": "Sample governance input finding.",
+    "Evidence": [
+      {
+        "Source": "EntraIdFixture",
+        "Metric": "MFARegisteredPercent",
+        "Value": 58
+      }
+    ],
+    "Recommendation": "Review MFA registration coverage and prioritized rollout actions.",
+    "RemediationType": "Configuration",
+    "FrameworkMappings": [],
+    "Source": {
+      "Connector": "MicrosoftGraph",
+      "RuleId": "AX-M365-ENTRA-001",
+      "Pack": "Microsoft365",
+      "Area": "EntraId"
+    },
+    "Timestamp": "2026-03-27T00:00:00.0000000Z"
+  },
+  {
+    "FindingId": "AX-AZ-RES-001",
+    "Category": "Resilience",
+    "Service": "Azure",
+    "Scope": "Subscription:sub-prod-001",
+    "Severity": "High",
+    "Likelihood": "Medium",
+    "Impact": "High",
+    "RiskScore": 12,
+    "Title": "Azure resilience controls require follow-up",
+    "Description": "Sample governance input finding.",
+    "Evidence": [
+      {
+        "Source": "AzureResilienceFixture",
+        "VmWithoutBackupCount": 4
+      }
+    ],
+    "Recommendation": "Improve backup coverage and resilience settings for critical Azure workloads.",
+    "RemediationType": "Configuration",
+    "FrameworkMappings": [],
+    "Source": {
+      "Connector": "Azure",
+      "RuleId": "AX-AZ-RES-001",
+      "Pack": "Azure",
+      "Area": "Resilience"
+    },
+    "Timestamp": "2026-03-27T00:00:00.0000000Z"
+  }
+]

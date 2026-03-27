@@ -1,0 +1,38 @@
+[
+  {
+    "FindingId": "AX-AZ-INV-001",
+    "Category": "Governance",
+    "Service": "Azure",
+    "Scope": "Subscription:sub-prod-001",
+    "Severity": "Medium",
+    "Likelihood": "Low",
+    "Impact": "Medium",
+    "RiskScore": 6,
+    "Title": "Azure inventory and scope hierarchy requires review",
+    "Description": "Sample Phase 06 finding output for Azure coverage.",
+    "Evidence": [
+      {
+        "Source": "AzureInventoryFixture",
+        "SubscriptionCount": 4,
+        "ManagementGroupCount": 2,
+        "UnassignedSubscriptionCount": 1,
+        "ScopeType": "Subscription"
+      }
+    ],
+    "Recommendation": "Validate management group alignment, subscription placement, and scope ownership across the Azure estate.",
+    "RemediationType": "Configuration",
+    "FrameworkMappings": [
+      {
+        "Framework": "NIS2",
+        "Control": "Resilience"
+      }
+    ],
+    "Source": {
+      "Connector": "Azure",
+      "RuleId": "AX-AZ-INV-001",
+      "Pack": "Azure",
+      "Area": "Inventory"
+    },
+    "Timestamp": "2026-03-27T00:00:00.0000000Z"
+  }
+]
