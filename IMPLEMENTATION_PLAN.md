@@ -83,6 +83,24 @@ Deliver the platform in phases. Build the shared framework first, then connector
 - Config-loading and validation helpers
 - Sample launcher configuration JSON
 
+### Phase 17 - Report hardening assessment and inventory
+- Inspect the current reporting and AI-rendering implementation
+- Baseline the real report architecture and assets
+- Compare the current output against consulting-grade expectations
+- Produce a sequenced backlog for report hardening
+
+### Phase 18 - Report standardization and template contracts
+- Add fixed report template assets
+- Add shared report schema and section contracts
+- Standardize severity, remediation, and evidence wording
+- Refit current renderers to use fixed section structure while preserving compatibility
+
+### Phase 19 - AI reporting prompts and mappings
+- Add AI prompt templates by report type and audience
+- Map normalized findings into report-ready AI records
+- Add section-level AI guardrails aligned to report contracts
+- Validate required mapped fields and AI section coverage before prompt packaging
+
 ## Detailed steps
 | Step ID | Title | Goal | Inputs | Outputs | Dependencies | Status |
 |---|---|---|---|---|---|---|
@@ -99,6 +117,9 @@ Deliver the platform in phases. Build the shared framework first, then connector
 | 11 | Hardening | Make solution production-ready | Full repo | Tests and packaging | Step 1-10 | Completed |
 | 12 | Launcher foundation | Add a thin desktop shell over the PowerShell platform | Full repo plus operational docs | PySide6 launcher scaffold and integration notes | Step 11 | Completed |
 | 13 | Launcher config contract | Normalize launcher selections and map them to real PowerShell entry points | Launcher foundation plus current scripts and modules | Typed config models, profile mapping catalog, and config docs | Step 12 | Completed |
+| 17 | Report hardening assessment | Inventory the current reporting system and define the hardening baseline | Existing reporting, AI, governance, sample outputs, and tests | Reporting current-state docs, gap analysis, target report catalog, data flow, and backlog | Step 9-10 | Completed |
+| 18 | Report standardization | Add fixed report contracts, shared section standards, and controlled reporting language | Report hardening baseline plus current reporting module | Template assets, standards docs, standardized renderers, and refreshed samples | Step 17 | Completed |
+| 19 | AI reporting hardening | Align AI prompts and mappings to the fixed report contracts | Report standardization layer plus current AI module | AI prompt templates, mapped report-record logic, validation helpers, and AI reporting docs | Step 18 | Completed |
 
 ## Validation strategy
 - Pester tests for PowerShell modules
@@ -110,6 +131,9 @@ Deliver the platform in phases. Build the shared framework first, then connector
 - Manual validation for at least one lab tenant and one hybrid lab
 - Launcher smoke validation for imports and `python launcher\\main.py` startup when dependencies are present
 - Launcher config validation for dataclass instantiation, sample JSON loading, and profile mapping accuracy
+- Reporting baseline validation that documentation matches actual code paths, assets, and current report execution behavior
+- Report standardization validation for template existence, standardized rendering, consistent severity language, and compatibility with the current report bundle flow
+- AI reporting validation for prompt-template coverage, mapped-field validation, section-plan alignment, and audience-specific prompt guidance
 
 ## Rollback or recovery considerations
 - Keep assessment mode read-only in early releases

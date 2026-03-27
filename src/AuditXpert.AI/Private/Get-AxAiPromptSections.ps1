@@ -2,7 +2,10 @@ function Get-AxAiPromptSections {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory)]
-        [psobject[]]$Finding,
+        [psobject[]]$MappedFinding,
+
+        [Parameter(Mandatory)]
+        [psobject[]]$SectionPlan,
 
         [Parameter()]
         [psobject[]]$RiskRegister = @(),
@@ -11,22 +14,28 @@ function Get-AxAiPromptSections {
         [psobject[]]$Scorecard = @()
     )
 
-    $topFindings = $Finding | Sort-Object RiskScore -Descending | Select-Object -First 5
+    $topFindings = $MappedFinding | Select-Object -First 5
 
-    [pscustomobject]@{
-        ExecutiveFocus = @(
-            'Summarize business-facing risk themes without presenting AI prose as evidence.',
-            'Reference finding IDs for every major narrative statement.'
-        )
-        TopFindings = @($topFindings | ForEach-Object {
-            [pscustomobject]@{
-                FindingId      = $_.FindingId
-                Title          = $_.Title
-                Severity       = $_.Severity
-                Recommendation = $_.Recommendation
-            }
-        })
-        RiskRegister = $RiskRegister
-        Scorecard    = $Scorecard
+    foreach ($section in $SectionPlan | Where-Object { $_.AIControlled }) {
+        $sectionRecords = switch ($section.SectionKey) {
+            'executive_summary' { $topFindings }
+            'risk_overview' { $MappedFinding | Group-Object severity | Sort-Object Name }
+            'key_findings' { $topFindings }
+            'recommendations' { $topFindings | Select-Object finding_id, title, recommendation, remediation_priority, owner }
+            'remediation_roadmap' { $topFindings | Select-Object finding_id, title, remediation_priority, owner, effort, recommendation }
+            'compliance_control_mapping' { $topFindings | Select-Object finding_id, title, control_mapping, traceability }
+            'service_specific_detail' { $MappedFinding | Group-Object service | Sort-Object Name }
+            'evidence_appendix' { $topFindings | Select-Object finding_id, affected_scope, evidence_summary, traceability }
+            default { @() }
+        }
+
+        [pscustomobject]@{
+            SectionKey    = $section.SectionKey
+            SectionTitle  = $section.SectionTitle
+            Instructions  = $section.Instructions
+            Records       = @($sectionRecords)
+            RiskRegister  = if ($section.SectionKey -in @('executive_summary', 'risk_overview', 'compliance_control_mapping')) { $RiskRegister } else { @() }
+            Scorecard     = if ($section.SectionKey -in @('executive_summary', 'risk_overview', 'compliance_control_mapping')) { $Scorecard } else { @() }
+        }
     }
 }

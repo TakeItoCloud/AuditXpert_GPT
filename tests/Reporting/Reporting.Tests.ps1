@@ -12,10 +12,17 @@ Describe 'AuditXpert.Reporting rendering' {
     It 'creates a report bundle with executive and technical sections' {
         $bundle = New-AxReportBundle -Finding $script:findings -RiskRegister $script:governance.RiskRegister -Scorecard $script:governance.Scorecard
 
-        $bundle.ExecutiveSummary | Should -Match '# Executive Summary'
+        $bundle.ExecutiveSummary | Should -Match '# Executive Summary Report'
+        $bundle.ExecutiveSummary | Should -Match '## Report Metadata'
+        $bundle.ExecutiveSummary | Should -Match '## Risk Overview'
+        $bundle.TechnicalFindings | Should -Match '# Technical Assessment Report'
+        $bundle.TechnicalFindings | Should -Match 'Business impact:'
+        $bundle.TechnicalFindings | Should -Match 'Evidence summary:'
+        $bundle.TechnicalFindings | Should -Match 'Framework/control mapping:'
         $bundle.TechnicalFindings | Should -Match 'Traceability: AX-M365-ENTRA-001'
         $bundle.RiskRegisterSummary | Should -Match 'Risk Register Summary'
         $bundle.ServiceAppendix | Should -Match 'Service-Specific Appendix'
+        $bundle.TemplateContracts.Count | Should -Be 3
     }
 
     It 'exports report files without requiring AI' {
@@ -25,5 +32,22 @@ Describe 'AuditXpert.Reporting rendering' {
         $export.Files.Count | Should -Be 6
         (Test-Path -LiteralPath (Join-Path $script:outputPath 'Executive-Summary.md')) | Should -BeTrue
         (Test-Path -LiteralPath (Join-Path $script:outputPath 'Technical-Findings.html')) | Should -BeTrue
+    }
+
+    It 'defines template contracts for all targeted report types' {
+        $templateRoot = Join-Path $repoRoot 'src/AuditXpert.Reporting/Templates/reports'
+        $expected = @(
+            'executive-summary.json',
+            'technical-assessment.json',
+            'governance-vciso.json',
+            'azure-assessment.json',
+            'microsoft365-assessment.json',
+            'hybrid-infrastructure.json',
+            'remediation-roadmap.json'
+        )
+
+        foreach ($file in $expected) {
+            (Test-Path -LiteralPath (Join-Path $templateRoot $file)) | Should -BeTrue
+        }
     }
 }

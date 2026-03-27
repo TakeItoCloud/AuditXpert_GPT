@@ -17,11 +17,16 @@ function New-AxReportBundle {
     $appendix = Get-AxServiceAppendixMarkdown -Finding $Finding
 
     [pscustomobject]@{
-        ExecutiveSummary     = $executive
-        TechnicalFindings    = $technical
-        RiskRegisterSummary  = $riskSummary
-        ServiceAppendix      = $appendix
-        ExecutiveSummaryHtml = Convert-AxMarkdownToSimpleHtml -Markdown $executive
+        ExecutiveSummary      = $executive
+        TechnicalFindings     = $technical
+        RiskRegisterSummary   = $riskSummary
+        ServiceAppendix       = $appendix
+        ExecutiveSummaryHtml  = Convert-AxMarkdownToSimpleHtml -Markdown $executive
         TechnicalFindingsHtml = Convert-AxMarkdownToSimpleHtml -Markdown $technical
+        TemplateContracts     = @(
+            (Get-AxReportTemplate -TemplateName 'executive-summary').reportId
+            (Get-AxReportTemplate -TemplateName 'technical-assessment').reportId
+            (Get-AxReportTemplate -TemplateName 'governance-vciso').reportId
+        )
     }
 }

@@ -4,7 +4,7 @@
 AuditXpert_GPT is a PowerShell-first enterprise assessment platform for Microsoft 365, Microsoft Entra ID, Intune, Exchange Online, Microsoft Defender, Azure, and hybrid Microsoft infrastructure. The repository is structured as a phased build with modular engines for shared services, prerequisite validation, connectors, assessments, regulatory mapping, reporting, AI-assisted narrative generation, and a thin desktop launcher shell.
 
 ## Current phase status
-Phase 13 launcher UI scaffolding is in place. The desktop launcher now includes panel-based controls for profile selection, auth intent, AI settings, paths, prerequisites, status, results, and a dedicated app-auth help window backed by documentation.
+Phase 19 AI reporting hardening is in place. The AI layer now uses report-type prompt templates, mapped report records, and section guardrails so AI narrative preparation aligns to the fixed reporting contracts.
 
 ## Repository structure
 ```text
@@ -108,6 +108,32 @@ $export.Files
 
 The reporting layer works without AI enabled. AI-assisted content remains optional, explicitly labeled, and traceable to finding IDs rather than being treated as evidence.
 
+## Reporting hardening baseline
+The current report-hardening baseline is documented in:
+- `docs/reporting/REPORTING_CURRENT_STATE.md`
+- `docs/reporting/REPORT_HARDENING_GAP_ANALYSIS.md`
+- `docs/reporting/REPORT_TYPES_CATALOG.md`
+- `docs/reporting/REPORT_DATA_FLOW.md`
+- `docs/reporting/REPORT_HARDENING_BACKLOG.md`
+
+These files inventory the real current reporting implementation and identify the next hardening steps without changing the current report engine behavior.
+
+## Reporting standards
+The report standardization layer is now documented in:
+- `docs/reporting/REPORT_STANDARDS.md`
+- `docs/reporting/RISK_AND_SEVERITY_STANDARD.md`
+- `docs/reporting/REMEDIATION_WRITING_STANDARD.md`
+- `docs/reporting/EVIDENCE_TRACEABILITY_STANDARD.md`
+
+The active report-template assets live under `src/AuditXpert.Reporting/Templates`.
+
+## AI reporting standards
+The AI reporting hardening layer is now documented in:
+- `docs/reporting/AI_REPORTING_STANDARD.md`
+- `docs/reporting/FINDINGS_TO_REPORT_MAPPING_STANDARD.md`
+
+The active AI prompt-template assets live under `src/AuditXpert.AI/Templates`.
+
 ## Validation and testing
 Validation expectations now include report-rendering tests, fixture-based AI prompt construction tests, smoke-test orchestration, release-build verification, launcher import or startup smoke validation, launcher configuration-model validation, and launcher UI behavior smoke validation.
 
@@ -119,4 +145,4 @@ Validation expectations now include report-rendering tests, fixture-based AI pro
 - Keep the launcher thin and avoid duplicating PowerShell assessment or authentication logic in Python.
 
 ## Next milestone
-The next milestone is PowerShell process bridging and execution wiring so the launcher can safely invoke explicit repository entry points using the state it already captures.
+The next milestone is completing the next report-hardening set: remediation roadmap rendering, fuller governance/vCISO output depth, and section-insertion paths that consume the new AI prompt packages deterministically.

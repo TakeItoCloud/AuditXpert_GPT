@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0",
+  "severityTaxonomy": [
+    {
+      "label": "Critical",
+      "priority": "Immediate",
+      "businessImpact": "Immediate and material business disruption, control failure, or regulatory exposure is likely without prompt action."
+    },
+    {
+      "label": "High",
+      "priority": "Urgent",
+      "businessImpact": "Significant operational, security, or compliance impact is likely if the issue is not addressed in the near term."
+    },
+    {
+      "label": "Medium",
+      "priority": "Planned",
+      "businessImpact": "Noticeable operational or control weakness exists and should be remediated through a defined improvement plan."
+    },
+    {
+      "label": "Low",
+      "priority": "Scheduled",
+      "businessImpact": "Limited direct impact is expected, but the issue should be corrected to improve consistency and reduce accumulated risk."
+    },
+    {
+      "label": "Informational",
+      "priority": "Monitor",
+      "businessImpact": "The item provides context, status, or advisory information and should be monitored for future change."
+    }
+  ],
+  "findingContract": [
+    "finding_title",
+    "finding_id",
+    "severity",
+    "affected_scope",
+    "issue_summary",
+    "business_impact",
+    "technical_impact",
+    "evidence_summary",
+    "recommendation",
+    "implementation_guidance",
+    "framework_control_mapping",
+    "traceability"
+  ]
+}

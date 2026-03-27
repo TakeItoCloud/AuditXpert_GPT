@@ -21,6 +21,9 @@
 - Desktop launcher shell
 - Launcher configuration contract
 - Launcher UI behavior
+- Reporting hardening baseline
+- Report standardization layer
+- AI reporting hardening
 
 ## Test types
 - Smoke
@@ -63,6 +66,14 @@
 | T-008C | Profile mapping accuracy | Phase 12 launcher contract present | Compare launcher profile catalog against repository scripts and orchestrator command | Documented launcher profiles match the current PowerShell entry points and parameters | Completed |
 | T-008D | Launcher dynamic auth behavior | Phase 13 launcher UI present | Switch between delegated, app, client-secret, and certificate controls | Dependent auth controls show and hide correctly and launcher state updates cleanly | Completed |
 | T-008E | Launcher AI and help behavior | Phase 13 launcher UI present | Toggle AI fields and open the app-auth help window | AI-dependent fields show correctly and help guidance loads from maintained docs | Completed |
+| T-009 | Reporting baseline documentation accuracy | Phase 17 reporting baseline docs present | Compare reporting baseline docs against actual reporting code paths, assets, and outputs | Documentation accurately reflects the current report architecture, formats, and entry points | Completed |
+| T-009A | Reporting flow regression check | Phase 17 reporting baseline docs present | Re-run reporting and AI validation after documentation changes | Current report generation and AI packaging still work as before | Completed |
+| T-010 | Report template contract coverage | Phase 18 standardization assets present | Verify template files exist for each target report type and shared contracts | All target report types have defined template or contract assets | Completed |
+| T-010A | Standardized reporting structure | Phase 18 standardization assets present | Render a report bundle from sample findings and inspect the executive and technical outputs | Rendered output follows fixed section structure and controlled finding presentation | Completed |
+| T-010B | Controlled severity and traceability coverage | Phase 18 standardization assets present | Verify rendered outputs use normalized severity language and include evidence or traceability fields | Severity labels are consistent and traceability fields remain present | Completed |
+| T-011 | AI prompt-template coverage | Phase 19 AI template assets present | Verify AI prompt-template files exist for each supported report type | Each supported report type has an AI prompt path aligned to the hardened report contracts | Completed |
+| T-011A | AI mapped-record validation | Phase 19 AI mapping logic present | Build an AI prompt payload from sample findings and inspect the mapped finding records | Prompt packaging uses normalized mapped records rather than relying only on raw finding blobs | Completed |
+| T-011B | AI required-field guardrail | Phase 19 AI validation helpers present | Attempt to package AI prompt input with a missing required mapped field | The AI layer surfaces the problem and does not silently package an invalid prompt payload | Completed |
 
 ## Validation evidence
 - Pester output
@@ -82,3 +93,5 @@
 - Python compilation output and launcher startup smoke-test output when PySide6 is installed
 - Launcher config sample load output and profile-catalog validation output
 - Offscreen launcher UI smoke-test output for dynamic visibility, help-window rendering, and state updates
+- Reporting and AI validation output plus manual verification of reporting baseline docs against the current repo structure
+- Reporting and AI Pester output plus manual verification of template assets, standardized sample outputs, and smoke-test report generation

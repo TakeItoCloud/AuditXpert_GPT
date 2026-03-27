@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "globalRules": [
+    "Do not invent report headings or section order. Use the provided section contract only.",
+    "Do not invent severity labels, priorities, or remediation categories outside the controlled taxonomy.",
+    "Do not present AI-generated prose as evidence.",
+    "Every substantive statement must cite one or more finding IDs from the provided mapped records.",
+    "If required mapped fields are missing, return a warning-oriented response rather than fabricating content.",
+    "Keep tone consulting-grade, direct, and evidence-aware. Avoid vendor-marketing language."
+  ],
+  "sharedFragments": {
+    "severityWordRule": "Use only these severity labels when referring to findings: Critical, High, Medium, Low, Informational.",
+    "businessImpactRule": "Business impact wording must remain concise, risk-oriented, and tied to the normalized business impact field.",
+    "technicalImpactRule": "Technical issue explanation must stay grounded in the normalized technical impact field and evidence summary.",
+    "remediationRule": "Recommendations and implementation guidance must remain action-oriented, concise, and aligned to the remediation writing standard.",
+    "evidenceRule": "Evidence must be summarized cautiously. Do not claim certainty beyond the provided evidence summary and traceability references.",
+    "controlMappingRule": "Framework and control mapping language must use the provided mapping fields and must not imply automatic certification.",
+    "sectionGuardrailRule": "Output should populate only the requested section body for each section key. No extra headings, introductions, or appendices."
+  }
+}

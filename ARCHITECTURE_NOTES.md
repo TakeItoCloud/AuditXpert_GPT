@@ -27,6 +27,9 @@ The recommended architecture is a single repository with modular PowerShell comp
 - Hybrid rule-specific documentation and fixtures now exist under `docs` and `samples/findings/hybrid`
 - Governance documentation, mapping configuration, and sample governance inputs now exist under `docs`, `config/framework-mappings`, and `samples/governance`
 - Reporting and AI documentation plus sample report outputs now exist under `docs`, `samples/reports`, `tests/Reporting`, and `tests/AI`
+- Report-hardening inventory and backlog documentation now exist under `docs/reporting`
+- Fixed report-template and shared section-contract assets now exist under `src/AuditXpert.Reporting/Templates`
+- AI prompt-template assets and shared prompt rules now exist under `src/AuditXpert.AI/Templates`
 - Operational tooling and packaging assets now exist under `tools` with predictable consultant-facing output paths under `output`
 - Launcher documentation now exists under `docs/launcher` and the launcher package has its own local `README.md`
 
@@ -76,12 +79,18 @@ The recommended architecture is a single repository with modular PowerShell comp
 - Keep the desktop launcher as a thin orchestration layer that passes versioned configuration into PowerShell entry points instead of re-implementing collection or assessment logic in Python
 - Normalize launcher state into typed Python models and map it only to repository-backed PowerShell profiles so unsupported UI intent can be stored without inventing fake script parameters
 - Keep the launcher UI panelized around one shared config object with signal-based updates so later process-bridging logic can subscribe to state changes without duplicating widget logic
+- Treat the current report engine as a stable baseline and harden it through additive contracts, renderers, and validation rather than risky rewrites
+- Keep report standardization template-driven inside the reporting module so the current public report bundle flow stays stable while new report types can reuse shared section contracts
+- Keep AI prompt generation deterministic by packaging mapped report records and section plans derived from the reporting contracts instead of letting AI infer structure from raw findings
 
 ## Future architecture considerations
 - Web UI or API wrapper
 - Launcher-to-engine binding contracts and state synchronization
 - Richer launcher controls and help surfaces over the normalized config contract
 - Launcher-to-PowerShell process bridging and execution-state synchronization
+- Consulting-grade report structure, validation, and governed AI narrative assets
+- Remediation-roadmap rendering and richer service-specific report variants
+- Deterministic AI section-insertion and post-generation validation
 - Multi-tenant scheduling
 - Evidence repository and client workspace separation
 - Controlled remediation workflows

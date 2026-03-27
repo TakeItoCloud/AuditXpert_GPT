@@ -39,14 +39,20 @@
 - Launcher-specific documentation and architecture notes for thin-client orchestration
 - Typed launcher configuration models, PowerShell profile catalog, and sample launcher config JSON
 - Panel-based launcher UI with dynamic auth and AI controls plus a doc-backed app-auth help window
+- Report-hardening baseline documentation covering current-state architecture, gaps, target report types, data flow, and sequenced backlog
+- Report standardization assets and renderer hardening with fixed templates, shared section contracts, and controlled severity, remediation, and evidence language
+- AI reporting hardening with report-type prompt templates, mapped report records, and section-plan validation guardrails
 
 ### Changed
 - README now reflects the actual repository skeleton and bootstrap usage
 - README now reflects the launcher component and repository structure updates
 - README now reflects the launcher configuration contract and profile-mapping layer
 - README now reflects the launcher UI behavior and app-auth guidance
-- Next-step guidance now advances to PowerShell process bridging and execution wiring
-- Test plan expanded with launcher UI smoke and control-behavior validation scenarios
+- README now includes the report-hardening baseline documentation set
+- README now includes the report standards documentation set and template asset location
+- README now includes the AI reporting standards documentation set and AI template asset location
+- Next-step guidance now advances to remediation-roadmap rendering and deterministic AI section-insertion work
+- Test plan expanded with AI reporting hardening validation scenarios
 
 ### Fixed
 - N/A
