@@ -62,10 +62,20 @@ class PathsPanel(QWidget):
         self.load_from_config()
 
     def load_from_config(self) -> None:
+        self.output_path_edit.blockSignals(True)
+        self.evidence_path_edit.blockSignals(True)
+        self.install_missing_modules_checkbox.blockSignals(True)
+        self.open_results_checkbox.blockSignals(True)
+
         self.output_path_edit.setText(self._config.output_path or "")
         self.evidence_path_edit.setText(self._config.evidence_path or "")
         self.install_missing_modules_checkbox.setChecked(self._config.install_missing_modules)
         self.open_results_checkbox.setChecked(self._config.open_results_after_run)
+
+        self.output_path_edit.blockSignals(False)
+        self.evidence_path_edit.blockSignals(False)
+        self.install_missing_modules_checkbox.blockSignals(False)
+        self.open_results_checkbox.blockSignals(False)
 
     def _sync_fields(self) -> None:
         self._config.output_path = self.output_path_edit.text().strip() or None

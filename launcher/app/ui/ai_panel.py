@@ -49,6 +49,11 @@ class AiPanel(QWidget):
         note.setWordWrap(True)
         layout.addWidget(note)
 
+        self.summary_label = QLabel()
+        self.summary_label.setProperty("role", "caption")
+        self.summary_label.setWordWrap(True)
+        layout.addWidget(self.summary_label)
+
         card.add_content_widget(content)
         outer = QVBoxLayout(self)
         outer.setContentsMargins(0, 0, 0, 0)
@@ -68,6 +73,7 @@ class AiPanel(QWidget):
         self.key_env_edit.setText(ai.api_key_env_var or "")
         self.external_config_edit.setText(ai.external_config_path or "")
         self._refresh_visibility()
+        self._update_summary()
 
     def _refresh_visibility(self) -> None:
         self.fields_container.setVisible(self.enable_checkbox.isChecked())
@@ -75,6 +81,7 @@ class AiPanel(QWidget):
     def _on_enable_changed(self) -> None:
         self._config.ai.enabled = self.enable_checkbox.isChecked()
         self._refresh_visibility()
+        self._update_summary()
         self.status_message.emit(
             "AI explainer enabled." if self._config.ai.enabled else "AI explainer disabled."
         )
@@ -85,4 +92,20 @@ class AiPanel(QWidget):
         self._config.ai.model = self.model_edit.text().strip() or None
         self._config.ai.api_key_env_var = self.key_env_edit.text().strip() or None
         self._config.ai.external_config_path = self.external_config_edit.text().strip() or None
+        self._update_summary()
         self.config_changed.emit()
+
+    def _update_summary(self) -> None:
+        ai = self._config.ai
+        if not ai.enabled:
+            self.summary_label.setText("AI runtime contract flow: disabled.")
+            return
+
+        provider = ai.provider or "provider-not-set"
+        model = ai.model or "model-not-set"
+        key_source = f"env:{ai.api_key_env_var}" if ai.api_key_env_var else "no-env-var"
+        external = ai.external_config_path or "no-external-config"
+        self.summary_label.setText(
+            f"AI runtime contract flow: enabled for {provider} / {model}. "
+            f"Key source: {key_source}. External config: {external}."
+        )

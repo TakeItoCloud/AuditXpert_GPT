@@ -110,6 +110,11 @@ class AuthPanel(QWidget):
         app_method_layout.addWidget(self.certificate_frame)
 
         layout.addWidget(self.app_method_frame)
+
+        self.auth_summary_label = QLabel()
+        self.auth_summary_label.setWordWrap(True)
+        self.auth_summary_label.setProperty("role", "caption")
+        layout.addWidget(self.auth_summary_label)
         card.add_content_widget(content)
 
         outer = QVBoxLayout(self)
@@ -160,6 +165,7 @@ class AuthPanel(QWidget):
 
         self._refresh_visibility()
         self._update_mode_text()
+        self._update_summary()
 
     def _update_mode_text(self) -> None:
         label = {
@@ -190,6 +196,7 @@ class AuthPanel(QWidget):
 
         self._update_mode_text()
         self._refresh_visibility()
+        self._update_summary()
         self.status_message.emit(f"Authentication mode set to {self._config.auth.authentication_mode}.")
         self.config_changed.emit()
 
@@ -222,4 +229,21 @@ class AuthPanel(QWidget):
             self.secure_secret_checkbox.blockSignals(False)
 
         self._refresh_visibility()
+        self._update_summary()
         self.config_changed.emit()
+
+    def _update_summary(self) -> None:
+        auth = self._config.auth
+        if auth.authentication_mode == "delegated":
+            summary = "Resolved auth flow: interactive delegated login."
+        elif auth.authentication_mode == "hybrid-local":
+            summary = "Resolved auth flow: hybrid local integrated collector."
+        elif auth.client_secret_path or auth.use_secure_secret_entry:
+            detail = "secure runtime entry" if auth.use_secure_secret_entry else "secret path reference"
+            summary = f"Resolved auth flow: app authentication via client secret using {detail}."
+        elif auth.certificate and (auth.certificate.thumbprint or auth.certificate.subject or auth.certificate.path):
+            summary = "Resolved auth flow: app authentication via certificate metadata."
+        else:
+            summary = "Resolved auth flow: app authentication selected, but the client secret or certificate method is incomplete."
+
+        self.auth_summary_label.setText(summary)

@@ -94,6 +94,7 @@ def get_profile_catalog() -> list[RunProfile]:
                     "module_manifest": "src/AuditXpert.Cli/AuditXpert.Cli.psd1",
                     "command_name": "Invoke-AxAssessmentOrchestrator",
                     "supported_parameters": [
+                        "RuntimeConfigPath",
                         "AssessmentPack",
                         "Rule",
                         "Context",
@@ -101,14 +102,16 @@ def get_profile_catalog() -> list[RunProfile]:
                         "ExportFormat",
                     ],
                 },
-                "current_capability": "partially-implemented",
+                "current_capability": "implemented",
                 "supports_assessment_modules": True,
+                "supports_auth_config": True,
+                "supports_ai_options": True,
                 "supports_output_path": True,
                 "default_assessment_modules": ["Microsoft365"],
                 "notes": [
-                    "This is the closest current launcher target for future assessment execution.",
-                    "The function currently relies on stub-rule behavior unless rules or context are provided by a later binding phase.",
-                    "The current interface does not expose launcher auth settings or AI options directly.",
+                    "This profile now consumes a launcher-generated runtime config contract.",
+                    "The current rule path still relies on stub assessment behavior unless later phases replace it with live collection logic.",
+                    "Launcher auth and AI selections are passed through the runtime contract for backend-side interpretation.",
                 ],
             }
         ),
